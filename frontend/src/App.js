@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage';
 import DoctorSignUpPage from './pages/DoctorRegister';
 import DoctorLoginPage from './pages/DoctorLoginPage';
 import Dashboard from './pages/DoctorDashboard';
-import AppointmentList from './pages/DoctorAppointments';
+import DocAppointmentList from './pages/DoctorAppointments';
 //admin pages
 import AdminRegister from './pages/AdminRegister';
 import AdminLoginPage from './pages/AdminLoginPage';
@@ -32,7 +32,7 @@ function App() {
            <Route path='/doctor-signup' element={<DoctorSignUpPage />} />
            <Route path='/doctor-login' element={<DoctorLoginPage />} />
           <Route path='/doctor-dashboard' element={<Dashboard />} />
-          <Route path='/doctor-schedule' element={<AppointmentList />} />
+          <Route path='/doctor-schedule' element={<DocAppointmentList />} />
       </Routes>
     </div>
   );
