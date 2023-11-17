@@ -5,7 +5,7 @@ const adminAllowed = require('../middleware/adminMiddleware');
 //exported to the admin routes file
 //This route handles the addition of new patients.
 //requires to have admin privileges (adminAllowed middleware).
-router.post('/add', adminAllowed, async (req, res) => {
+router.post('/', adminAllowed, async (req, res) => {
     try{
         console.log('Starting patient addition...');
         //The request body should contain the patient's name, surname, and phoneNumber.
