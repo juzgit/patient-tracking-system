@@ -12,7 +12,7 @@ const DoctorSidebar = () =>{
                 </li>
 
                 <li className='nav-item flex-fill'>
-                    <Link to='/doctor-schedule' className='btn btn-light'>Appointments</Link>
+                    <Link to='/doctor-appointments' className='btn btn-light'>Appointments</Link>
                 </li>
 
                 <li className='nav-item flex-fill'>
