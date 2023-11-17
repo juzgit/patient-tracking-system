@@ -1,10 +1,8 @@
 import React, {useContext} from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/DocSidebar.css';
-import HomepageContext from "../HomePageContext";
 
 const DoctorSidebar = () =>{
-    const { basename } = useContext(HomepageContext);
     
     return(
         <div className='sidebar'>

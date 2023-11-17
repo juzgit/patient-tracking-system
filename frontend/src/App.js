@@ -29,6 +29,7 @@ function App() {
            <Route path='/admin-patientform' element={<AddPatientForm />} />
            <Route path='/patient-list' element={<PatientList />} />
            <Route path='/appointment-list' element={<AdminAppointmentList />} />
+           
            <Route path='/doctor-signup' element={<DoctorSignUpPage />} />
            <Route path='/doctor-login' element={<DoctorLoginPage />} />
           <Route path='/doctor-dashboard' element={<Dashboard />} />
