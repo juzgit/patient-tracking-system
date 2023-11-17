@@ -1,12 +1,17 @@
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const PORT = 8060;
 
-
 app.use(bodyParser.json());
+app.use(cors({
+    origin: 'https://patient-tracking-system-ui.onrender.com', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+}));
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
