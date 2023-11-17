@@ -75,7 +75,7 @@ const AppointmentForm = () => {
 
         try{
             const token = localStorage.getItem('adminToken');
-            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/admin/appointment',{
+            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/admin/appointments',{
                 method:'POST',
                 headers: {
                     'Content-Type':'application/json',
