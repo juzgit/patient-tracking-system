@@ -11,7 +11,7 @@ const PatientList = () => {
         //It makes a fetch request to the /api/admin/patients endpoint with the necessary headers, including the authentication token.
         //The response is then converted to JSON format and the data is set using the setPatients function.
         const fetchPatients = () => {
-            fetch('/api/admin/patients', {
+            fetch('https://patient-tracking-system-api.onrender.com/api/admin/patients', {
                 headers:{
                     'Content-Type':'application/json',
                     'x-auth-token': localStorage.getItem('adminToken'),
@@ -44,7 +44,7 @@ const PatientList = () => {
             const editedPatient = editedPatients[patientId];
 
             //a PUT request to the /api/patients/${patientId} endpoint with the updated data.
-            fetch(`/api/patients/${patientId}`, {
+            fetch(`https://patient-tracking-system-api.onrender.com/api/patients/${patientId}`, {
                 method: "PUT",
                 headers:{
                     'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const PatientList = () => {
           //After successful deletion, an alert is shown and the fetchPatients function is called to refresh the patients' data.
           const deletePatient = (patientId) => {
             if(window.confirm("Are you sure you want to delete this patient?")){
-                fetch(`/api/patients/${patientId}`, {
+                fetch(`https://patient-tracking-system-api.onrender.com/api/patients/${patientId}`, {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json',

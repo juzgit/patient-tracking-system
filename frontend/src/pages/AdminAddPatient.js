@@ -21,7 +21,7 @@ const AddPatientForm = () => {
             //Get the admin token from local storage
             const token = localStorage.getItem('adminToken');
             //send the POST request to the /api/admin/patients endpoint.
-            const response = await fetch('/api/admin/patients', {
+            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/admin/patients', {
                 method:'POST',
                 headers:{
                     'Content-Type':'application/json',

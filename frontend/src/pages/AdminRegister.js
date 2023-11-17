@@ -24,7 +24,7 @@ const AdminRegister = () => {
         }
 
         try{
-            const response = await fetch('/api/admin/register', {
+            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/admin/register', {
                 method: 'POST',
                 headers: {
                   //Sets the request header to indicate that the body contains JSON data

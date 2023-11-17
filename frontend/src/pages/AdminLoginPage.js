@@ -12,7 +12,7 @@ const AdminLoginPage = () => {
     const AdminLogin = async () => {
         try{
             //Send a POST request to the '/api/admin/login' endpoint
-            const response = await fetch('/api/admin/login', {
+            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/admin/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json',

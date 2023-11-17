@@ -12,7 +12,7 @@ const AppointmentList = () => {
                 //retrieve the authentication token from the local storage
                 //pass the authentication token in the request headers to ensure that the request is authenticated.
                 const token = localStorage.getItem('doctorToken');
-                const response = await fetch('/api/appointment/weekly', {
+                const response = await fetch('https://patient-tracking-system-api.onrender.com/api/appointment/weekly', {
                     method: 'GET',
                     headers:{
                         'Content-Type':'application/json',

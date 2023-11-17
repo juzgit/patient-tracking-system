@@ -12,7 +12,7 @@ const AdminAppointmentList = () => {
         const fetchAppointments = async () => {
             try{
                 const token = localStorage.getItem('adminToken');
-                const response = await fetch(`/api/admin/appointments`, {
+                const response = await fetch(`https://patient-tracking-system-api.onrender.com/api/admin/appointments`, {
                     method: 'GET',
                     headers: {
                         'Content-Type':'application/json',

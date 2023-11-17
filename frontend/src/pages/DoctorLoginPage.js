@@ -15,7 +15,7 @@ const DoctorLoginPage = () => {
         try{
             console.log('Request Payload:', { username, password });
             //an asynchronous function that makes a POST request to the /api/doctor/login endpoint with the provided username and password.
-            const response = await fetch('/api/doctor/login', {
+            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/doctor/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type':'application/json',

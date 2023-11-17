@@ -32,7 +32,7 @@ const DoctorRegister = () => {
                 ChosenSpeciality
             };
 
-            const response = await fetch('/api/doctor/register', {
+            const response = await fetch('https://patient-tracking-system-api.onrender.com/api/doctor/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type':'application/json',
