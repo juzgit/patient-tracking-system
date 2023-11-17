@@ -7,6 +7,7 @@ const adminAllowed = require('../middleware/adminMiddleware');
 //requires to have admin privileges (adminAllowed middleware).
 router.post('/', adminAllowed, async (req, res) => {
     try{
+        console.log('Starting patient addition...');
         //The request body should contain the patient's name, surname, and phoneNumber.
         const {  name, surname ,phoneNumber} = req.body;
         //The code checks if a patient with the same name and surname already exists in the database.
@@ -19,6 +20,7 @@ router.post('/', adminAllowed, async (req, res) => {
         //saves it to the database, and returns a 201 status code with a success message and the ID of the newly created patient.
         const newPatient = new Patient({ name, surname, phoneNumber});
         await newPatient.save();
+        console.log('Patient added successfully');
         res.status(201).json({ message: 'Patient added successfully', patientId: newPatient._id});
     } catch (error){
         console.error(error);

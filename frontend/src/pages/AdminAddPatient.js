@@ -45,7 +45,7 @@ const AddPatientForm = () => {
         } catch(error){
             console.error('Client error:', error.message);
         }
-    }
+    };
 
 
     //represents the form
