@@ -1,0 +1,10 @@
+.admin-reg-container{
+    background: linear-gradient(to right, lightblue, rgba(35, 85, 221, 0.664));
+    padding: 25px;
+}
+
+#admin-register-container{
+    width: 25em;
+    margin-bottom: 16px;
+    padding: 15px;
+}

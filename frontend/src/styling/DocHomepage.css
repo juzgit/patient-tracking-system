@@ -1,0 +1,6 @@
+#doc-homepage{
+    background: linear-gradient(to right, limegreen, darkgreen);
+    height: 100vh;
+    padding: 10px;
+    overflow-x: hidden;
+}

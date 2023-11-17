@@ -1,0 +1,37 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const app = express();
+const connection = 'mongodb+srv://gadzisorameckjunior7:freedom2003@cluster0.kan2xkd.mongodb.net/patientTrackingSystem?retryWrites=true&w=majority';
+const PORT = 8060;
+
+
+app.use(bodyParser.json());
+
+mongoose.connect(connection, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then( () => {
+    console.log('Connected to MongoDB database.');
+
+}).catch((error) => {
+    console.error(`MongoDB connection error: ${error}`)
+});
+
+//importing the routes
+const adminRoutes = require('./routes/adminRoutes');
+const doctorRoutes = require('./routes/doctorRoutes');
+const appointmentRoutes = require('./routes/appointmentRoutes');
+const patientRoutes = require('./routes/patientRoutes');
+const specialtiesRoutes = require('./routes/specialityRoutes');
+    
+//routes
+app.use('/api/admin', adminRoutes);
+app.use('/api/doctor', doctorRoutes);
+app.use('/api/appointment', appointmentRoutes);
+app.use('/api/patients', patientRoutes);
+app.use('/api/service', specialtiesRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on PORT: ${PORT}`);
+});

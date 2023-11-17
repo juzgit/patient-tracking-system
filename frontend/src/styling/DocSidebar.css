@@ -1,0 +1,10 @@
+.sidebar{
+    background-color: yellowgreen;
+    padding: 15px;
+    margin-left: 0px;
+    height: max-content;
+}
+
+.btn{
+    margin: 12px 12px;
+}

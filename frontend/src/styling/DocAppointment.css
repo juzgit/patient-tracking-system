@@ -1,0 +1,12 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container-fluid{
+    background: linear-gradient(to right, limegreen, darkgreen);
+    margin-top: 12px;
+    height: 100vh;
+    padding: 10px;
+    overflow-x: hidden;
+}

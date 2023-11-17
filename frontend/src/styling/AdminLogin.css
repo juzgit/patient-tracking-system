@@ -1,0 +1,61 @@
+.admin-login-container{
+    background: linear-gradient(to top, lightblue, rgba(35, 85, 221, 0.664));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    height: 100vh;
+}
+
+.input-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 25px;
+    background-color: white;
+    height: 75vh;
+}
+
+.admin-login-username{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.admin-login-password{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-username-input{
+    margin-top: 3px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    border-radius: 9px;
+    padding: 8px;
+}
+
+.admin-password-input{
+    margin-top: 3px;
+    margin-bottom: 10px;
+    border: 1px solid grey;
+    border-radius: 9px;
+    padding: 8px;
+}
+
+.admin-login-btn{
+    margin-top: 8px;
+    border: none;
+    border-radius: 9px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 60px;
+    background-color: rgb(18, 118, 248);
+    color: white;
+}
+
+.admin-login-btn:hover{
+    background-color: rgb(50, 121, 145);
+}

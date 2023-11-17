@@ -1,0 +1,111 @@
+.homepage-container{
+    background: radial-gradient(black, white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-register{
+    background-color: white;
+    width: max-content;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.admin-login{
+   background-color: white; 
+   width: max-content;
+   padding: 25px;
+   margin-bottom: 15px;
+}
+
+.doctor-signup{
+    background-color: white;
+    width: max-content;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.doctor-login{
+    background-color: white;
+    width: max-content;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+.pages-heading-admin-signup{
+    text-align: center;
+    font-size: medium;
+    border: none;
+    border-radius: 9px;
+    margin-left: 17rem;
+    margin-bottom: 9px;
+    background-color: lawngreen;
+}
+
+.pages-heading-admin-signup:hover{
+    background-color: darkgreen;
+    color: white;
+}
+
+.pages-heading-admin-login{
+    text-align: center;
+    font-size: medium;
+    border: none;
+    border-radius: 9px;
+    margin-left: 8rem;
+    margin-bottom: 9px;
+    background-color: lightseagreen;
+    color: white;
+}
+
+.pages-heading-admin-login:hover{
+    background-color: skyblue;
+    color: black;
+}
+
+.pages-heading-doc-signup{
+    text-align: center;
+    font-size: medium;
+    border: none;
+    border-radius: 9px;
+    margin-left: 10rem;
+    margin-bottom: 9px; 
+    background-color: lawngreen;
+}
+
+.pages-heading-doc-signup:hover{
+    background-color: darkgreen;
+    color: white;
+}
+
+.pages-heading-doc-login{
+    text-align: center;
+    font-size: medium;
+    border: none;
+    border-radius: 9px;
+    margin-left: 10rem;
+    margin-bottom: 9px;
+    background-color: lightseagreen;
+    color: white;
+}
+
+.pages-heading-doc-login:hover{
+    background-color: skyblue;
+    color: black;
+}
+
+.pages-subtext{
+    text-align: center;
+}
+
+.block{
+    display: block;
+
+}
+
+.pages{
+    list-style-type: none;
+}
