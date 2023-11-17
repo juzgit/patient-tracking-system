@@ -10,15 +10,15 @@ const DoctorSidebar = () =>{
         <div className='sidebar'>
             <ul className='nav flex-column d-flex justify-content-between'>
                 <li className='nav-item flex-fill'>
-                    <Link to={`${basename}/doctor-dashboard`} className='btn btn-light'>Home</Link>
+                    <Link to='/doctor-dashboard' className='btn btn-light'>Home</Link>
                 </li>
 
                 <li className='nav-item flex-fill'>
-                    <Link to={`${basename}/doctor-schedule`} className='btn btn-light'>Appointments</Link>
+                    <Link to='/doctor-schedule' className='btn btn-light'>Appointments</Link>
                 </li>
 
                 <li className='nav-item flex-fill'>
-                    <Link to={`${basename}/`} className='btn btn-light'>Sign out</Link>
+                    <Link to='/' className='btn btn-light'>Sign out</Link>
                 </li>
             </ul>
         </div>
