@@ -1,14 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const app = express();
-const connection = 'mongodb+srv://gadzisorameckjunior7:freedom2003@cluster0.kan2xkd.mongodb.net/patientTrackingSystem?retryWrites=true&w=majority';
 const PORT = 8060;
 
 
 app.use(bodyParser.json());
 
-mongoose.connect(connection, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then( () => {
