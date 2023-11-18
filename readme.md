@@ -72,6 +72,47 @@ The admin can update the appointment date, and delete an appointment.
 
 2. After successfully logging in, you can the homepage will tell you how to use the doctor side. There is a sidebar where you can navigate to see the appointments for the current week.
 
+### Deployment
+- The project will be deployed on Render.com, because it is free and I can upload the frontend and backend seperately. Render.com also auto deploys when I make changes to the backend or the frontend.
+
+### How to install
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/juzgit/patient-tracking-system
+
+# Install frontend dependencies
+cd frontend
+npm install
+
+# Install backend dependencies
+cd backend
+npm install
+
+
+# Start frontend (inside the 'frontend' directory)
+npm start
+
+# Start backend (inside the 'backend' directory)
+npm start
+
+#The application is deployed here:
+https://patient-tracking-system-ui.onrender.com
+
+### Modify
+
+-There is no need to modify anything.
+
+## Security Measures
+
+### 1. CORS Configuration
+
+- CORS is configured on the backend to allow requests only from the specific origin where the frontend is hosted. This prevents unauthorized domains from accessing the API and helps mitigate cross-origin attacks.
+
+### Third Party APIs?
+
+- No third party APIs were used.
+
 
 
 
