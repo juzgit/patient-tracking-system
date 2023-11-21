@@ -41,8 +41,10 @@ const AdminRegister = () => {
                 alert('Admin registered successfully.');
                 console.log('Server response:', data);
                 navigate('/admin-login');
-            } else {
-                alert(`Registration failed: Invalid username (e.g. example@gmail.com)`);
+            } else if (response.status === 401) {
+                alert(`Username already exists`);
+            } else if (response.status === 500){
+              alert('Internal Server Error');
             }
         } catch(error){
             console.error('Error during registration:', error);

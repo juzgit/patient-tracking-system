@@ -32,9 +32,8 @@ const AdminLoginPage = () => {
             } else if(response.status === 401){
                 //If the response status is 401 (Unauthorized), display an error message to the user
                 alert('Invalid credentials. Please try again');
-            } else {
-                //If the response status is neither 200 (OK) nor 401 (Unauthorized), display a generic error message to the user
-                alert('Admin login failed');
+            } else if (response.status === 500) {
+                alert('Internal Server Error');
             }
         } catch (error){
             //If an error occurs during the login process, log the error to the console

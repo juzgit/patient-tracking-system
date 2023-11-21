@@ -35,8 +35,8 @@ const DoctorLoginPage = () => {
                 //Otherwise, it displays an alert for a failed login.
             } else if(response.status === 401){
                 alert('Invalid credentials. Please try again.')
-            } else {
-                alert('User login failed');
+            } else if (response.status === 500) {
+                alert('Internal Server Error');
             }
         } catch(error){
             console.error('Error during login:', error);

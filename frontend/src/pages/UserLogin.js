@@ -28,8 +28,10 @@ const UserLogin = () => {
                 console.log('Server response:', data);
                 navigate('/user-check-appointment');
                 //If the response is not successful, an alert is displayed to notify the user of login failure.
-            } else {
+            } else if (response.status === 401) {
                 alert('Invalid credentials. Please try again');
+            } else if (response.status === 500){
+                alert('Internal Server Error');
             }
             //Any errors that occur during the login process are logged to the console.
         } catch(error){

@@ -24,7 +24,7 @@ router.post('/register', validUsername, async (req, res) => {
 
         //If the username is already in use, a 400 status code is returned with an appropriate error message.
         if (existingDoctor) {
-            return res.status(400).json({ message: 'Email already in use. Please use a different email.' });
+            return res.status(401).json({ message: 'Email already in use. Please use a different email.' });
         }
 
         // Hash the password before storing it in the database

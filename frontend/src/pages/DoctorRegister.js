@@ -46,8 +46,10 @@ const DoctorRegister = () => {
                 console.log('Server response:', data);
                 //navigate to the login-page
                 navigate('/doctor-login');
-            } else{
-                alert('Registration failed: Invalid username (e.g. example@gmail.com)');
+            } else if (response.status === 401) {
+                alert('Username already in use. Please use a different email.');
+            } else if( response.status === 500) {
+                alert('Internal Server Error');
             }
         } catch (error){
             console.error(error);
