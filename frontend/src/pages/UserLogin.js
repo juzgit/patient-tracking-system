@@ -13,7 +13,6 @@ const UserLogin = () => {
     //responsible for handling the login process.
     const Login = async () => {
         try{
-            console.log('Sending login request:', { username, password });
             const response = await fetch('https://patient-tracking-system-api.onrender.com/user/login', {
                 method:'POST',
                 headers:{
@@ -21,7 +20,6 @@ const UserLogin = () => {
                 },
                 body: JSON.stringify({ username, password })
             });
-            console.log('Received login response:', response);
         //If the response is successful, the user token is stored in the local storage, an alert is displayed to notify the user of successful login, and the user is navigated to the /user-check-appointment page.
             if(response.ok){
                 const data = await response.json();
@@ -32,10 +30,8 @@ const UserLogin = () => {
                 //If the response is not successful, an alert is displayed to notify the user of login failure.
             } else if (response.status === 401) {
                 alert('Invalid credentials. Please try again');
-                console.log('Login failed. Invalid credentials.');
             } else if (response.status === 500){
                 alert('Internal Server Error');
-                console.log('Internal Server Error.');
             }
             //Any errors that occur during the login process are logged to the console.
         } catch(error){
