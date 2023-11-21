@@ -29,7 +29,7 @@ const AppointmentForm = () => {
     //The fetched data is then stored in the specialties state using the setSpecialties function. 
     //If there is an error during the fetch request, the error is logged to the console.
     useEffect(() => {
-        fetch('/api/service/specialities')
+        fetch('https://patient-tracking-system-api.onrender.com/api/service/specialities')
         .then(response => response.json())
         .then(data => setSpecialties(data))
         .catch( error => console.error('Error fetching specialties:', error));
@@ -39,7 +39,7 @@ const AppointmentForm = () => {
     useEffect(() => {
         if(selectedSpeciality){
             //speciality is passed as a query parameter in the fetch URL.
-            fetch(`/api/appointment/doctors?speciality=${selectedSpeciality}`,{
+            fetch(`https://patient-tracking-system-api.onrender.com/api/appointment/doctors?speciality=${selectedSpeciality}`,{
                 headers: {
                     'Content-Type':'application/json',
                     'x-auth-token':localStorage.getItem('adminToken'),
@@ -52,7 +52,7 @@ const AppointmentForm = () => {
 
 
             if(selectedDoctor && date){
-                fetch(`/api/appointment/timeslots?doctorId=${selectedDoctor}&date=${date}`, {
+                fetch(`https://patient-tracking-system-api.onrender.com/api/appointment/timeslots?doctorId=${selectedDoctor}&date=${date}`, {
                     headers:{
                         'Content-Type': 'application/json',
                         'x-auth-token' : localStorage.getItem('adminToken'),
@@ -69,7 +69,7 @@ const AppointmentForm = () => {
     //fetch the latest patient details from the /api/patients/latest endpoint.
     //fetched data is then used to set the patientName and patientSurname states.
     useEffect(()=> {
-        fetch('/api/patients/latest', {
+        fetch('https://patient-tracking-system-api.onrender.com/api/patients/latest', {
             headers: {
                 'Content-Type':'application/json',
                 'x-auth-token':localStorage.getItem('adminToken'),
