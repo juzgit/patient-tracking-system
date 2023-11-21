@@ -41,8 +41,8 @@ const AdminRegister = () => {
                 alert('Admin registered successfully.');
                 console.log('Server response:', data);
                 navigate('/admin-login');
-            } else if (response.status === 401) {
-                alert(`Username already exists`);
+            } else if (response.status === 400) {
+                alert(`Username already exists. Please use a different email.`);
             } else if (response.status === 500){
               alert('Internal Server Error');
             }

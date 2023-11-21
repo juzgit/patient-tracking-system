@@ -24,7 +24,7 @@ router.post('/register', validUsername, async (req, res) => {
 
         //If an admin with the same username exists, return a 400 status code with a JSON response indicating that the username is already in use.
         if (existingAdmin) {
-            return res.status(401).json({ message: 'Username already in use. Please choose a different username.' });
+            return res.status(400).json({ message: 'Username already in use. Please choose a different username.' });
         }
 
         //If the username is available, hash the password using bcrypt and create a new admin object with the provided details.

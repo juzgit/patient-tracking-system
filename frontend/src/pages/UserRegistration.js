@@ -40,9 +40,9 @@ const UserRegister = () => {
                 console.log('Server response:', data);
                 //The navigate function is then called to navigate the user to the login page.
                 navigate('/user-login');
-            } else if(response.status === 401) {
+            } else if(response.status === 400) {
                 //If the response is not successful, an alert is displayed to the user indicating failed registration.
-                alert('Username already exists.');
+                alert('Username already exists. Please use a different email.');
             } else if (response.status === 500){
                 alert('Internal Server Error');
             }
