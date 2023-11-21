@@ -131,7 +131,7 @@ const UserAppointmentCheck = () => {
                     {/**This button allows the user to logout */}
                     <button onClick={Logout} className="user-appointment-btn">Logout</button>
                     {/**This button allows the user to make an appointment */}
-                    <button className="user-appointment-btn"><Link to='/admin-login' className="user-admin-btn">Make an appointment</Link></button>
+                    <button className="user-appointment-btn"><Link to='/admin-register' className="user-admin-btn">Make an appointment</Link></button>
                 </div>
                 </div>
     </div>
