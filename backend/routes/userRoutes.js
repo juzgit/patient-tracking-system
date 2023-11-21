@@ -40,7 +40,7 @@ router.post('/login', validUsername, async (req, res) => {
       const user = await Users.findOne({ username });
   
       if (!user) {
-        return res.status(401).json({ message: 'Invalid credentials', error: error.message });
+        return res.status(401).json({ message: 'Invalid credentials'});
       }
   
       const passwordMatch = await bcrypt.compare(password, user.password);
@@ -49,7 +49,7 @@ router.post('/login', validUsername, async (req, res) => {
         const token = jwt.sign({ userId: user._id }, 'freedom');
         res.json({ token, userId: user._id });
       } else {
-        res.status(401).json({ message: 'Invalid credentials', error: error.message });
+        res.status(401).json({ message: 'Invalid credentials' });
       }
     } catch (error) {
       console.error('Error finding user:', error);
