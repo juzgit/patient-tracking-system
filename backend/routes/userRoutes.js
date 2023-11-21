@@ -40,6 +40,7 @@ router.post('/login', validUsername, async (req, res) => {
       const user = await Users.findOne({ username });
   
       if (!user) {
+        console.log('User not found for username:', username);
         return res.status(401).json({ message: 'Invalid credentials'});
       }
   
@@ -47,8 +48,10 @@ router.post('/login', validUsername, async (req, res) => {
   
       if (passwordMatch) {
         const token = jwt.sign({ userId: user._id }, 'freedom');
+        console.log('Login successful for user:', username);
         res.json({ token, userId: user._id });
       } else {
+        console.log('Invalid password for user:', username);
         res.status(401).json({ message: 'Invalid credentials' });
       }
     } catch (error) {
