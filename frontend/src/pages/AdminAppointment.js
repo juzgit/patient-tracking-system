@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AdminSideBar from "../components/AdminSidebar";
 
-
 const AppointmentForm = () => {
     //used to store and update the patient's name entered in the input field with the id "name".
     const [patientName, setPatientName] = useState('');
