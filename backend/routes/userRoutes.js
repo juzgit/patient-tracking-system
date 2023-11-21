@@ -53,7 +53,7 @@ router.post('/login', validUsername, async (req, res) => {
       }
     } catch (error) {
       console.error('Error finding user:', error);
-      res.status(500).json({ message: 'Internal Server Error' });
+      res.status(500).json({ message: 'Internal Server Error', error: error.message });
     }
   });
 
