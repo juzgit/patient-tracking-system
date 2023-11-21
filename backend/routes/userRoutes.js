@@ -49,7 +49,7 @@ router.post('/login', validUsername, async (req, res) => {
         const token = jwt.sign({ userId: user._id }, 'freedom');
         res.json({ token, userId: user._id });
       } else {
-        res.status(401).json({ message: 'Invalid credentials' });
+        res.status(401).json({ message: 'Invalid credentials', error: error.message });
       }
     } catch (error) {
       console.error('Error finding user:', error);
