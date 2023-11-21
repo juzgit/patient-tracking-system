@@ -17,7 +17,7 @@ const UserAppointmentCheck = () => {
    //The retrieved data is then set using the setSpecialities function.
 
     useEffect(() => {
-      fetch('/api/service/specialities')
+      fetch('https://patient-tracking-system-api.onrender.com/api/service/specialities')
         .then(response => response.json())
         .then(data => setSpecialities(data))
         .catch(error => console.error('Error fetching specialities:', error));
@@ -40,7 +40,7 @@ const UserAppointmentCheck = () => {
     //The fetch request is only made if there is a selectedDoctor value.
     useEffect(() => {
       if (selectedDoctor) {
-        fetch(`/user/appointments/${selectedDoctor}/weekly`)
+        fetch(`https://patient-tracking-system-api.onrender.com/user/appointments/${selectedDoctor}/weekly`)
           .then(response => response.json())
           .then(data => setAppointments(data))
           .catch(error => console.error('Error fetching appointments:', error));
