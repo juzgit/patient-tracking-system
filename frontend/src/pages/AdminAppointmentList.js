@@ -64,7 +64,7 @@ const AdminAppointmentList = () => {
                         <tr key={appointment._id}>
                             <td>{appointment.patient.name}</td>
                             <td>{appointment.patient.surname}</td>
-                            <td>{appointment.date}</td>
+                            <td>{`${new Date(appointment.date).toLocaleDateString()} ${appointment.time}`}</td>
                             {/**Edit button and delete button*/}
                             <td>
                                 <EditAppointmentDate

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/AdminSidebar.css';
 
+//sidebar for admins
 const AdminSideBar = () => {
     return(
         <nav id='sidebar'>

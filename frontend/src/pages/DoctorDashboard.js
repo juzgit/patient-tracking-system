@@ -3,7 +3,7 @@ import DoctorSidebar from "../components/DoctorSidebar";
 import '../styling/DocHomepage.css'
 
 const Dashboard = () => {
-    {/**This is the doctors homepage */}
+    //This is the doctors homepage 
     return(
         <div className="container-fluid" id="doc-homepage">
             <div className="row">

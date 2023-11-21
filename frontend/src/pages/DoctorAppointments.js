@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import DoctorSidebar from "../components/DoctorSidebar";
 import '../styling/DocAppointment.css';
 
-const DocAppointmentList = () => {
+const DoctorAppointmentList = () => {
     //used to store the weekly appointments data.
     const [weeklyAppointments, setWeeklyAppointments] = useState([]);
 
@@ -84,4 +84,4 @@ const DocAppointmentList = () => {
     )
 };
 
-export default DocAppointmentList;
+export default DoctorAppointmentList;

@@ -13,7 +13,7 @@ const doctorAllowed = require('../middleware/doctorMiddleware');
 //This route handles the creation of a new appointment.
 router.post('/', adminAllowed, async (req, res) => {
   //expects the doctorId, patientName, patientSurname, and date to be provided in the request body.
-    const { doctorId, patientName, patientSurname, date } = req.body;
+    const { doctorId, patientName, patientSurname, date, time} = req.body;
   
     try {
       // Validate doctor IDs
@@ -21,7 +21,17 @@ router.post('/', adminAllowed, async (req, res) => {
   
       //If the doctor is not found, it returns a 400 status code with an error message.
       if (!doctor) {
-        return res.status(400).json({ message: 'Invalid doctor or patient ID' });
+        return res.status(400).json({ message: 'Invalid doctor ID' });
+      }
+
+      const existingAppointments = await Appointment.find({
+        doctorId,
+        date,
+        time,
+      })
+
+      if(existingAppointments.length > 0){
+        return res.status(400).json({ message: 'Selected time slot is not available'})
       }
   
       // Create a new appointment
@@ -29,7 +39,14 @@ router.post('/', adminAllowed, async (req, res) => {
         doctorId,
         patient: { name: patientName, surname: patientSurname },
         date,
+        time,
       });
+
+      const updateDoctorSlot = await Doctor.findByIdAndUpdate(
+        doctorId,
+        { $addToSet: { appointments: {date, time} } },
+        { new: true }
+      );
   
       //save to the database.
       await newAppointment.save();
@@ -75,12 +92,65 @@ router.get('/', adminAllowed, async(req, res) => {
     }
 });
 
+router.get('/timeslots', adminAllowed, async(req, res) => {
+  const {doctorId, date} = req.query;
+
+  try{
+    const existingAppointment = await Appointment.find({
+      doctorId,
+      date,
+    });
+
+    const startTime = moment().startOf('day');
+    const endTime = moment().endOf('day');
+    const interval = 55; //Time slot interval in minutes
+
+    const timeslots = [];
+    let currentTime = startTime.clone();
+    while (currentTime.isBefore(endTime)){
+      timeslots.push(currentTime.format('HH:mm'));
+      currentTime.add(interval, 'minutes');
+    }
+
+    const availableSlots = timeslots.filter((slot) => {
+      return !existingAppointment.some((appointment) => {
+        return moment(appointment.date, 'YYYY-MM-DD HH:mm').format('HH:mm') === slot;
+      });
+    });
+
+    res.json(availableSlots);
+  } catch(error){
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+router.get('/:appointmentId', async (req, res) => {
+  const { appointmentId } = req.params;
+
+  try {
+    // Fetch the appointment from the database based on the provided ID
+    const appointment = await Appointment.findById(appointmentId);
+
+    // If the appointment is not found, return a 404 status
+    if (!appointment) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+
+    // If the appointment is found, return it as JSON
+    res.json(appointment);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 //updates the date of an appointment.
 router.put('/:appointmentId', adminAllowed, async (req, res) => {
   try{
     //expects the appointmentId to be provided as a URL parameter and the new date to be provided in the request body.
     const appointmentId = req.params.appointmentId;
-    const { date } = req.body;
+    const { date, time } = req.body;
 
     //retrieves the appointment with the specified ID using the Appointment model.
     const  appointment = await Appointment.findById(appointmentId);
@@ -92,12 +162,13 @@ router.put('/:appointmentId', adminAllowed, async (req, res) => {
 
     //If the appointment is found, the date field of the appointment is updated with the new date and saved to the database.
     appointment.date = date;
+    appointment.time = time;
 
     //If the update is successful, a 200 status code is returned with a success message.
     await appointment.save();
 
     //If the update is successful, a 200 status code is returned with a success message.
-    res.status(200).json({ message: 'Appointment date updated successfully'});
+    res.status(200).json({ message: 'Appointment date and time updated successfully'});
   } catch(error){
     console.error(error);
     res.status(500).json({ error: 'Internal Server Error' });

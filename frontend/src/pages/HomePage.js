@@ -1,16 +1,49 @@
-import React, {useContext} from "react";
+import React from "react";
 import '../styling/HomePage.css';
 import { Link } from "react-router-dom";
-import HomepageContext from "../HomePageContext";
+//import HomepageContext from "../HomePageContext";
 
 //The app's homepage
 const HomePage = () => {
-    const { basename } = useContext(HomepageContext);
+   // const { basename } = useContext(HomepageContext);
 
     return(
         <div className="homepage-container">
-            <h1>Home Page</h1>
-            <p>Welcome to the Patient Tracking System.</p>
+            <h1>Welcome to Medical Centre Pro</h1>
+
+            <div className="services-description">
+                <p>
+                    At Medical Centre Pro, we are dedicated to providing comprehensive and compassionate healthcare services. Our team of experienced medical professionals specializes in three key areas:
+                </p>
+
+                <h2>General Practitioner Services:</h2>
+                <p>
+                    Receive personalized primary care from our skilled general practitioners, three of them. From routine check-ups to managing chronic conditions, we are here to support your overall well-being.
+                </p>
+
+                <h2>Dermatology Expertise:</h2>
+                <p>
+                    Our dermatologists, three of them, offer specialized care for your skin health. Whether it's skincare consultations, dermatological procedures, or addressing skin concerns, trust us for expert dermatological services.
+                </p>
+
+                <h2>Cardiology Excellence:</h2>
+                <p>
+                    Benefit from our cardiology services delivered by experienced cardiologists, three of them. We focus on heart health, offering diagnostics, preventive care, and management of cardiovascular conditions.
+                </p>
+
+                <p>
+                    At Medical Centre Pro, we prioritize your health and strive to create a welcoming environment for every patient. Experience healthcare that prioritizes your unique needs.
+                </p>
+            </div>
+
+        <div className="user-checks-timeslots">
+            <li className="pages">
+                <Link to='/user-register' className="page-link"><button className="pages-heading-user-btn">Check Appointment</button></Link>
+                <p className="pages-subtext">
+                    Click the button to view the appointments the doctors has within the next 7 days, by choosing the desired specialty, before making an appointment.
+                </p>
+            </li>
+        </div>
 
         <div className="admin-register">
             <li className="pages">

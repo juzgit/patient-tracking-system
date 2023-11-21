@@ -1,0 +1,47 @@
+/*editing the login container*/
+.user-reg-container{
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, lightblue, rgba(35, 85, 221, 0.664));
+    height: 100vh;
+}
+
+/*editing the register form*/
+.user-register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+/*editing the user register fields */
+.user-reg-labels{
+    margin-right: 15rem;
+    font-size: 17px;
+}
+
+/*editing the input element*/
+.user-reg-input{
+    width: 30%;
+    padding-top: 6px;
+    padding: 6px;
+    margin-bottom: 12px;
+    margin-top: 6px;
+    border-radius: 9px;
+    border: 1px solid black;
+}
+
+/*editing the register btn*/
+.user-reg-btn{
+    border: none;
+    border-radius: 9px;
+    background-color: lightblue;
+    padding: 7px;
+    margin-bottom: 7px;
+}
+
+.user-reg-btn:hover{
+    background-color: rgb(23, 75, 219);
+    color: white;
+}
+

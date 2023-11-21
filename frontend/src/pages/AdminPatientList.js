@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AdminSideBar from "../components/AdminSidebar";
-import '../styling/PatientList.css';
+
 
 const PatientList = () => {
        //will be used to store the list of patients and the edited patient data, respectively.
@@ -44,7 +44,7 @@ const PatientList = () => {
             const editedPatient = editedPatients[patientId];
 
             //a PUT request to the /api/patients/${patientId} endpoint with the updated data.
-            fetch(`https://patient-tracking-system-api.onrender.com/api/patients/${patientId}`, {
+            fetch(`/api/patients/${patientId}`, {
                 method: "PUT",
                 headers:{
                     'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ const PatientList = () => {
           //After successful deletion, an alert is shown and the fetchPatients function is called to refresh the patients' data.
           const deletePatient = (patientId) => {
             if(window.confirm("Are you sure you want to delete this patient?")){
-                fetch(`https://patient-tracking-system-api.onrender.com/api/patients/${patientId}`, {
+                fetch(`/api/patients/${patientId}`, {
                     method: "DELETE",
                     headers: {
                         'Content-Type': 'application/json',

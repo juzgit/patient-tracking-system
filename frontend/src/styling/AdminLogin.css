@@ -1,3 +1,4 @@
+/*editing the admin login main container*/
 .admin-login-container{
     background: linear-gradient(to top, lightblue, rgba(35, 85, 221, 0.664));
     display: flex;
@@ -8,6 +9,7 @@
     height: 100vh;
 }
 
+/*editing the input elements*/
 .input-form{
     display: flex;
     flex-direction: column;
@@ -45,6 +47,7 @@
     padding: 8px;
 }
 
+/*editing the login btn for the admin*/
 .admin-login-btn{
     margin-top: 8px;
     border: none;

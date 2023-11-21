@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminSideBar from "../components/AdminSidebar";
-import '../styling/AddPatient.css';
 
 //responsible for rendering a form to add a new patient.
 const AddPatientForm = () => {
@@ -45,7 +44,7 @@ const AddPatientForm = () => {
         } catch(error){
             console.error('Client error:', error.message);
         }
-    };
+    }
 
 
     //represents the form

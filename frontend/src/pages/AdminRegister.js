@@ -42,7 +42,7 @@ const AdminRegister = () => {
                 console.log('Server response:', data);
                 navigate('/admin-login');
             } else {
-                alert(`Registration failed. Please try again`);
+                alert(`Registration failed: Invalid username (e.g. example@gmail.com)`);
             }
         } catch(error){
             console.error('Error during registration:', error);
@@ -99,6 +99,7 @@ const AdminRegister = () => {
                   <input
                     type="text"
                     className="form-control"
+                    placeholder="(e.g. example@gmail.com)"
                     id="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}

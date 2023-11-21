@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import AdminSideBar from "../components/AdminSidebar";
-import '../styling/MakeAppointment.css';
+
 
 const AppointmentForm = () => {
     //used to store and update the patient's name entered in the input field with the id "name".
@@ -18,12 +18,18 @@ const AppointmentForm = () => {
     const [selectedDoctor, setSelectedDoctor] = useState('');
     //state variables are used to store and update the selected appointment date entered in the input field with the id "date".
     const [date, setDate] = useState('');
+    //store time input
+    const [time, setTime] = useState('');
+    const [timeslots, setTimeslots] = useState([]);
+    const [errorMessage, setErrorMessage] = useState('');
+
+
 
     //fetch a list of specialities from the /api/service/specialities endpoint. 
     //The fetched data is then stored in the specialties state using the setSpecialties function. 
     //If there is an error during the fetch request, the error is logged to the console.
     useEffect(() => {
-        fetch('https://patient-tracking-system-api.onrender.com/api/service/specialities')
+        fetch('/api/service/specialities')
         .then(response => response.json())
         .then(data => setSpecialties(data))
         .catch( error => console.error('Error fetching specialties:', error));
@@ -33,7 +39,7 @@ const AppointmentForm = () => {
     useEffect(() => {
         if(selectedSpeciality){
             //speciality is passed as a query parameter in the fetch URL.
-            fetch(`https://patient-tracking-system-api.onrender.com/api/appointment/doctors?speciality=${selectedSpeciality}`,{
+            fetch(`/api/appointment/doctors?speciality=${selectedSpeciality}`,{
                 headers: {
                     'Content-Type':'application/json',
                     'x-auth-token':localStorage.getItem('adminToken'),
@@ -43,14 +49,27 @@ const AppointmentForm = () => {
             //fetched data is then stored in the doctors state using the setDoctors function.
             .then(data => setDoctors(data))
             .catch(error => console.error('Error fetching doctors:', error));
+
+
+            if(selectedDoctor && date){
+                fetch(`/api/appointment/timeslots?doctorId=${selectedDoctor}&date=${date}`, {
+                    headers:{
+                        'Content-Type': 'application/json',
+                        'x-auth-token' : localStorage.getItem('adminToken'),
+                    },
+                })
+                .then(response => response.json())
+                .then(data => setTimeslots(data))
+                .catch(error => console.error('Error fetching time slots:', error));
+            }
         }
         //useEffect hook is triggered whenever the selectedSpeciality state changes.
-    }, [selectedSpeciality]);
+    }, [selectedSpeciality, selectedDoctor, date]);
 
     //fetch the latest patient details from the /api/patients/latest endpoint.
     //fetched data is then used to set the patientName and patientSurname states.
     useEffect(()=> {
-        fetch('https://patient-tracking-system-api.onrender.com/api/patients/latest', {
+        fetch('/api/patients/latest', {
             headers: {
                 'Content-Type':'application/json',
                 'x-auth-token':localStorage.getItem('adminToken'),
@@ -86,6 +105,7 @@ const AppointmentForm = () => {
                     patientSurname,
                     doctorId: selectedDoctor,
                     date,
+                    time: time,
                 }),
             });
 
@@ -95,15 +115,23 @@ const AppointmentForm = () => {
                 setPatientSurname("");
                 setSelectedtSpeciality("");
                 setSelectedDoctor("");
+                setDate("");
+                setTime("");
+                setErrorMessage('');
             } else {
                 alert('Failed to create appointment');
+                const errorData = await response.json();
+                setErrorMessage(errorData.message || 'Failed to create appointment');
                 setPatientName("");
                 setPatientSurname("");
                 setSelectedtSpeciality("");
                 setSelectedDoctor("");
+                setDate("");
+                setTime("");
             }
         } catch(error){
             console.error('Error creating appointment:', error);
+            setErrorMessage('Failed to create appointment');
         }
     };
 
@@ -117,6 +145,7 @@ const AppointmentForm = () => {
 
             {/**Main component */}
             <div className="col-md-8">
+
                 <h2>Create Appointment</h2>
                 <form onSubmit={makeAppointment}>
 
@@ -196,8 +225,34 @@ const AppointmentForm = () => {
                         required
                         />
                     </div>
+
+                    {/**Select the time for the appointment */}
+                        <div className="mb-4">
+                            <label htmlFor="time" className="form-label">Select A Time</label>
+                            <select
+                                className="form-select cursor-pointer"
+                                id="time"
+                                value={time}
+                                onChange={(e) => setTime(e.target.value)}
+                                required
+                            >
+                                {/* Options for time */}
+                                <option value="" disabled>Select A Time</option>
+                                {timeslots.map((time) => (
+                                    <option key={time} value={time}>
+                                        {time}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     {/**Create Appointment button */}
                     <button type="submit" className="btn btn-primary">Create Appointment</button>
+
+                    {errorMessage && (
+                    <div className="alert alert-danger" role="alert">
+                    {errorMessage}
+                    </div>
+                     )}
                 </form>
             </div>
         </div>

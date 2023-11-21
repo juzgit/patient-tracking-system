@@ -1,7 +1,8 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styling/DocSidebar.css';
 
+//sidebar for the doctors
 const DoctorSidebar = () =>{
     
     return(
@@ -12,7 +13,7 @@ const DoctorSidebar = () =>{
                 </li>
 
                 <li className='nav-item flex-fill'>
-                    <Link to='/doctor-appointments' className='btn btn-light'>Appointments</Link>
+                    <Link to='/doctor-schedule' className='btn btn-light'>Appointments</Link>
                 </li>
 
                 <li className='nav-item flex-fill'>

@@ -1,8 +1,10 @@
+/*editing the admin register main container*/
 .admin-reg-container{
     background: linear-gradient(to right, lightblue, rgba(35, 85, 221, 0.664));
     padding: 25px;
 }
 
+/*editing the admin input form*/
 #admin-register-container{
     width: 25em;
     margin-bottom: 16px;

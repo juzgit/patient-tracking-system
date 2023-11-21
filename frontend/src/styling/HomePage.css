@@ -1,5 +1,6 @@
+/*editing the homepage container*/
 .homepage-container{
-    background: radial-gradient(black, white);
+    background: linear-gradient(to right, lightblue, rgba(35, 85, 221, 0.664));
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -7,6 +8,15 @@
     align-items: center;
 }
 
+/*editing the check appointments of a doctor*/
+.user-checks-timeslots{
+    background-color: white;
+    width: max-content;
+    padding: 25px;
+    margin-bottom: 15px;
+}
+
+/*editing the admin register container*/
 .admin-register{
     background-color: white;
     width: max-content;
@@ -14,6 +24,7 @@
     margin-bottom: 15px;
 }
 
+/*editing the admin login container*/
 .admin-login{
    background-color: white; 
    width: max-content;
@@ -21,6 +32,7 @@
    margin-bottom: 15px;
 }
 
+/*editing the doctor register container*/
 .doctor-signup{
     background-color: white;
     width: max-content;
@@ -28,11 +40,23 @@
     margin-bottom: 15px;
 }
 
+/*editing the doctor login container*/
 .doctor-login{
     background-color: white;
     width: max-content;
     padding: 25px;
     margin-bottom: 15px;
+}
+
+/*editing the buttons*/
+.pages-heading-user-btn{
+    text-align: center;
+    font-size: medium;
+    border: none;
+    border-radius: 9px;
+    margin-left: 27rem;
+    margin-bottom: 9px;
+    background-color: lawngreen;
 }
 
 .pages-heading-admin-signup{
@@ -97,15 +121,17 @@
     color: black;
 }
 
+/*editing the text of each container*/
 .pages-subtext{
     text-align: center;
 }
 
+/*putting certain text to be displayed underneath*/
 .block{
     display: block;
-
 }
 
+/*make the bullet points disappear */
 .pages{
     list-style-type: none;
 }

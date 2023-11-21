@@ -13,7 +13,7 @@ const adminAllowed = (req, res, next) => {
         const decoded = jwt.verify(token, secretKey);
         console.log('Decoded Token:', decoded);
         //Adding the decoded admin property to the request object
-        req.admin = decoded.adminId;
+        req.admin = decoded.admin;
         //Proceeding to the next middleware
         next();
         //catching any errors that occur during JWT verification and sending a 401 Unauthorized response if the token is not valid

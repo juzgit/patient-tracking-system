@@ -19,6 +19,10 @@ const appointmentSchema = new Schema({
         required: true,
     },
 
+    time: {
+        type: String, 
+        required: true,
+    },
 })
 
 //Create the Appointment model using the appointment schema

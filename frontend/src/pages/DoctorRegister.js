@@ -47,7 +47,7 @@ const DoctorRegister = () => {
                 //navigate to the login-page
                 navigate('/doctor-login');
             } else{
-                alert('Registration failed');
+                alert('Registration failed: Invalid username (e.g. example@gmail.com)');
             }
         } catch (error){
             console.error(error);
@@ -91,6 +91,7 @@ const DoctorRegister = () => {
                     <input
                     type='text'
                     className='form-control'
+                    placeholder="(e.g. example@gmail.com)"
                     id='username'
                     value={username}
                     onChange={(e) => setUserName(e.target.value)}

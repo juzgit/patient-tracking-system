@@ -3,6 +3,7 @@ body{
     padding: 0;
 }
 
+/*editing the conatiner of the doctor's appointment list*/
 .container-fluid{
     background: linear-gradient(to right, limegreen, darkgreen);
     margin-top: 12px;
